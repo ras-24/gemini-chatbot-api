@@ -69,3 +69,7 @@ Follow these instructions to get a copy of the project up and running on your lo
     ```
 
 6.  **Open your browser** and navigate to `http://localhost:3000` to see the application in action.
+
+## Gemini AI Chatbot in Action
+![gemini-ai-chatbot](https://github.com/user-attachments/assets/f88ef2c1-1bfc-4b7d-ac76-a4866de97135)
+
