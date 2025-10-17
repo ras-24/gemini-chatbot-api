@@ -1,16 +1,24 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
 import { GoogleGenAI } from "@google/genai";
+import { fileURLToPath } from 'url';
+
+// ESM (import style)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-
 const GEMINI_MODEL = "gemini-2.5-flash";
 
 app.use(cors());
 app.use(express.json());
+
+// Serve all files in public_solution (HTML, JS, CSS) at root path
+app.use(express.static(path.join(__dirname, 'public')));
 
 function extractText(resp) {
   try {
