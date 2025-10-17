@@ -34,7 +34,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 - Node.js (v18 or later recommended)
 - npm (comes with Node.js)
-- A Google Gemini API Key. You can get one from **Google AI Studio**.
+- A Google Gemini API Key. You can get one from [Google AI Studio](https://aistudio.google.com/u/0/api-keys).
 
 ### Installation & Running
 
