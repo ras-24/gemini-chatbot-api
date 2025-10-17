@@ -26,5 +26,24 @@ function extractText(resp) {
   }
 }
 
+// API CHAT
+app.post('/api/chat', async (req, res) => {
+  try {
+    const { messages } = req.body;
+    if (!Array.isArray(messages)) throw new Error("messages must be an array");
+    const contents = messages.map(msg => ({
+      role: msg.role,
+      parts: [{ text: msg.content }]
+    }));
+    const resp = await ai.models.generateContent({
+      model: GEMINI_MODEL,
+      contents
+    });
+    res.json({ result: extractText(resp) });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+    
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server ready on http://localhost:${PORT}`));
